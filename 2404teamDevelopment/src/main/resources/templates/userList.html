@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ユーザー一覧</title>
+        <link rel="stylesheet" href="C:\Users\kazu-\2404\2404teamDevelopment\src\main\resources\static\css\userList.css">
+    </head>
+    <body>
+        <div class="wrapper">
+        <div class="clearfix">   
+        <div class="container">
+            <h1>ユーザー一覧</h1><img src="C:\Users\kazu-\2404\2404teamDevelopment\src\main\resources\img\UserImg.png" alt="レコード">
+        </div>
+    </div> 
+        <div class="header">
+            <div class="top-line"></div>
+            <div class="bottom-line"></div>
+        </div>
+        <table class="table=striped">
+            <thead>
+                <tr>
+                    <th>ユーザーID</th>
+                    <th>名前</th>
+                    <th>フリガナ</th>
+                    <th>メールアドレス</th>
+                    <th>パスワード</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="UserList : ${UserList}" th:object="${UserList}" class="align-middle">
+                    <td th:text="*{user_id}"></td>
+                    <td th:text="*{name}"></td>
+                    <td th:text="*{furigana}"></td>
+                    <td th:text="*{mail}"></td>
+                    <td th:text="*{password}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer-end">
+            <a th:href="@{feature/myPage}" class="btn btn-primary">戻る</a>
+        </div> 
+     </div>   
+    </body>
+</html>
