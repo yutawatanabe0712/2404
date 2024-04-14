@@ -1,4 +1,3 @@
-@charset "utl-8";
 
 body{
     width: 1240px;
@@ -26,7 +25,7 @@ div.container{
 }
 
 h1{
-    font-size: 30px;;
+    font-size: 40px;;
     margin-bottom: 0%;
     float: left;
     font-family: serif;
@@ -34,35 +33,124 @@ h1{
 }
 
 img{
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     float: left;
-    margin-top: 27px;
+    margin-top: 33px;
+    margin-left: 7px;
 }
 
 div.header{
     width: 1240px;
-    height: 20px;
+    height: 30px;
+    margin-top: 20px;
 }
 
 .top-line{
     background-color: #F6D720;
-    height: 13px;
+    height: 20px;
     
 
 }
 
 .bottom-line{
     background-color: #C00000;
-    height: 7px;
+    height: 10px;
 }
 
-main.table-striped{
-    height: 300px;
+table{
+    margin-top: 20px;
+    width: 1240px;
+    border-collapse:collapse;
 
 }
 
-tr{
+tr.list{
     font-family: serif;
+    text-align: left;
+    vertical-align: bottom;
+    background-color: black;
+    color: white; 
+    height: 50px;
+    border: 0px none;
     
 }
+
+th.ID{
+    width: 70px;
+    font-size: 20px;
+
+}
+
+th.name{
+    width: 150px;
+    font-size: 20px;
+
+}
+
+th.furigana{
+    width: 170px;
+    font-size: 20px;
+
+}
+
+th.mail{
+    width: 500px;
+    font-size: 20px;
+
+}
+th.pass{
+    width: 400px;
+    font-size: 20px;
+}
+
+tr.align-middle{
+    height: 40px;
+    background-color: #F2F2F2;
+    margin-top: 5px;
+
+}
+
+td.ID{
+    border-right: 1px dashed black;
+    
+
+}
+
+td.name{
+    border-right: 1px dashed black;
+
+}
+
+td.furigana{
+    border-right: 1px dashed black;
+
+}
+
+td.mail{
+    border-right: 1px dashed black;
+
+}
+
+div.footer-end{
+    text-align: center;
+    height: 50px;
+    font-size: 30px;
+    margin-top: 20px;
+    
+}
+
+a.btn{
+    color:azure; 
+
+}
+
+button{
+    background-color: #595959;
+    color: white;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    border-radius:10px;
+}
+
