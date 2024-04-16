@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>退勤登録</title>
+    </head>
+    <body>
+        <div class="wapper">
+        <div class="clearfix">
+        <div class="container">
+           <h1>退勤登録</h1>
+        </div>
+        </div>
+        <div class="header">
+            <div class="top-line"></div>
+            <div class="bottom-line"></div>
+        </div>
+        <div class="Form">
+            <div class="Form-Item">
+              <h4>◇勤怠ID </h4>
+              <label class="Form-Item-Label"></label>
+                <input type="text" class="Form-Item-Input">
+            </div>
+            <div class="Form-Item">
+              <h4>◇ユーザーID</h4>
+              <label class="Form-Item-Label"></label>
+                <input type="text" class="Form-Item-Input">
+              </div>
+
+              <div class="Form-Item">
+                <h4>◇ステータス <span class="Form-Item-Label-Required">*</span></h4>
+                <label class="Form-Item-Label"></label>
+                  <input type="text" th:field="*{}" class="Form-Item-Input">
+              </div>
+
+              <div class="Form-Item">
+                <h4>◇退勤日 <span class="Form-Item-Label-Required">*</span></h4>
+                <label class="Form-Item-Label"></label>
+                  <input type="date" class="Form-Item-Input">
+              </div>
+
+              <div class="Form-Item">
+                <h4>◇勤務時間 <span class="Form-Item-Label-Required">*</span></h4>
+                <label class="Form-Item-Label"></label>
+                  <input type="text" class="Form-Item-Input">
+              </div>
+
+              <div class="Form-Item">
+                <h4>◇休憩時間 <span class="Form-Item-Label-Required">*</span></h4>
+                <label class="Form-Item-Label"></label>
+                  <input type="text" class="Form-Item-Input">
+              </div>
+
+              <div class="Form-Item">
+                <h4>◇備考 </h4>
+                <label class="Form-Item-Label"></label>
+                  <input type="text" class="Form-Item-Input">
+              </div>
+        </div>
+
+        <div class="footer-end">
+            <a th:href="@{feature/myPage}" class="btn"> <button>戻る</button></a>
+            
+        </div>
+        </div>
+    </body>
+    
+</html>
