@@ -4,66 +4,80 @@
         <meta chaset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>退勤登録</title>
+        <link rel="stylesheet" href="../static/css/leavingRegister.css">
     </head>
     <body>
-        <div class="wapper">
+      <div class="wapper">
         <div class="clearfix">
         <div class="container">
-           <h1>退勤登録</h1>
+           <h1>退勤登録</h1><img src="../img/leavungRegister.jpg">
         </div>
         </div>
         <div class="header">
             <div class="top-line"></div>
             <div class="bottom-line"></div>
         </div>
-        <div class="Form">
+
+         <div class="Form">
             <div class="Form-Item">
-              <h4>◇勤怠ID </h4>
-              <label class="Form-Item-Label"></label>
-                <input type="text" class="Form-Item-Input">
+              <label class="Form-Item-Label">◇勤怠ID</label>
+              <div class="attendance_id">
+              <input type="text" disabled class="Form-Item-Input">
+              </div>  
             </div>
+
             <div class="Form-Item">
-              <h4>◇ユーザーID</h4>
-              <label class="Form-Item-Label"></label>
-                <input type="text" class="Form-Item-Input">
-              </div>
+              <label class="Form-Item-Label">◇ユーザーID</label>
+              <div class="user_id">
+              <input type="text" disabled class="Form-Item-Input">
+              </div>  
+            </div>
 
-              <div class="Form-Item">
-                <h4>◇ステータス <span class="Form-Item-Label-Required">*</span></h4>
-                <label class="Form-Item-Label"></label>
-                  <input type="text" th:field="*{}" class="Form-Item-Input">
+            <div class="Form-Item">
+              <label class="Form-Item-Label">◇ステータス <span class="Form-Item-Label-Required">*</span></label>
+              <div class="status">
+                <select name="status">
+                 <option value="退勤">退勤</option>
+                 <option value="早退">早退</option>
+                </select>
               </div>
+            </div>
 
-              <div class="Form-Item">
-                <h4>◇退勤日 <span class="Form-Item-Label-Required">*</span></h4>
-                <label class="Form-Item-Label"></label>
-                  <input type="date" class="Form-Item-Input">
+            <div class="Form-Item">
+              <label class="Form-Item-Label">◇退勤日 <span class="Form-Item-Label-Required">*</span></label>
+              <div class="leaving_date">
+              <input type="date" class="Form-Item-Input">
               </div>
+            </div>
 
-              <div class="Form-Item">
-                <h4>◇勤務時間 <span class="Form-Item-Label-Required">*</span></h4>
-                <label class="Form-Item-Label"></label>
-                  <input type="text" class="Form-Item-Input">
+            <div class="Form-Item">
+              <label class="Form-Item-Label">◇退勤時間 <span class="Form-Item-Label-Required">*</span></label>
+              <div class="leaving_time">
+              <input type="time" value="19:00" class="Form-Item-Input">
               </div>
+            </div>
 
-              <div class="Form-Item">
-                <h4>◇休憩時間 <span class="Form-Item-Label-Required">*</span></h4>
-                <label class="Form-Item-Label"></label>
-                  <input type="text" class="Form-Item-Input">
+            <div class="Form-Item">
+              <label class="Form-Item-Label">◇休憩時間 <span class="Form-Item-Label-Required">*</span></label>
+              <div class="break_time">
+              <input type="time" class="Form-Item-Input">
               </div>
+            </div>
 
-              <div class="Form-Item">
-                <h4>◇備考 </h4>
-                <label class="Form-Item-Label"></label>
-                  <input type="text" class="Form-Item-Input">
+            <div class="Form-Item">
+              <label class="Form-Item-Label">◇備考</label>
+              <div class="remarks">
+              <input type="text" class="Form-Item-Input">
               </div>
+            </div>
+         </div>
+
+        <div class="footer">
+          <a th:href="@{feature/myPage}" class="btn"> <button>戻る</button></a> 
+          <a th:href="@{feature/leavingRegister/create}" class="btn"> <button>登録</button></a> 
         </div>
 
-        <div class="footer-end">
-            <a th:href="@{feature/myPage}" class="btn"> <button>戻る</button></a>
-            
-        </div>
-        </div>
+      </div>
     </body>
     
 </html>
