@@ -106,8 +106,13 @@ th.pass{
 
 tr.align-middle{
     height: 40px;
-    background-color: #F2F2F2;
+    background: #F2F2F2;
     margin-top: 5px;
+
+}
+
+tr.tr:nth-child(odd).align-middle{
+    background: #FFFFFF;
 
 }
 
