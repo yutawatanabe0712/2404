@@ -1,5 +1,4 @@
-
-body{
+body {
     width: 1240px;
     margin: auto;
     min-height: 100%;
@@ -13,26 +12,27 @@ body{
     height: 20px;
 }
 
-.wapper{
+.wapper {
     width: 1024px;
-    
+
 }
 
-div.container{
+div.container {
     background-color: white;
     height: 40px;
     float: left;
 }
 
-h1{
-    font-size: 40px;;
+h1 {
+    font-size: 40px;
+    ;
     margin-bottom: 0%;
     float: left;
     font-family: serif;
 
 }
 
-img{
+img {
     width: 45px;
     height: 45px;
     float: left;
@@ -40,123 +40,123 @@ img{
     margin-left: 7px;
 }
 
-div.header{
+div.header {
     width: 1240px;
     height: 30px;
     margin-top: 20px;
 }
 
-.top-line{
+.top-line {
     background-color: #F6D720;
     height: 20px;
-    
+
 
 }
 
-.bottom-line{
+.bottom-line {
     background-color: #C00000;
     height: 10px;
 }
 
-table{
+table {
     margin-top: 20px;
     width: 1240px;
-    border-collapse:collapse;
+    border-collapse: collapse;
 
 }
 
-tr.list{
+tr.list {
     font-family: serif;
     text-align: left;
     vertical-align: bottom;
     background-color: black;
-    color: white; 
+    color: white;
     height: 50px;
     border: 0px none;
-    
+
 }
 
-th.ID{
+th.ID {
     width: 70px;
     font-size: 20px;
 
 }
 
-th.name{
+th.name {
     width: 150px;
     font-size: 20px;
 
 }
 
-th.furigana{
+th.furigana {
     width: 170px;
     font-size: 20px;
 
 }
 
-th.mail{
+th.mail {
     width: 500px;
     font-size: 20px;
 
 }
-th.pass{
+
+th.pass {
     width: 400px;
     font-size: 20px;
 }
 
-tr.align-middle{
+tr.align-middle {
     height: 40px;
     background: #F2F2F2;
     margin-top: 5px;
 
 }
 
-tr.tr:nth-child(odd).align-middle{
+tr.tr:nth-child(odd).align-middle {
     background: #FFFFFF;
 
 }
 
-td.ID{
+td.ID {
     border-right: 1px dashed black;
-    
+
 
 }
 
-td.name{
-    border-right: 1px dashed black;
-
-}
-
-td.furigana{
+td.name {
     border-right: 1px dashed black;
 
 }
 
-td.mail{
+td.furigana {
     border-right: 1px dashed black;
 
 }
 
-div.footer-end{
+td.mail {
+    border-right: 1px dashed black;
+
+}
+
+div.footer-end {
     text-align: center;
     height: 50px;
     font-size: 30px;
     margin-top: 20px;
-    
-}
-
-a.btn{
-    color:azure; 
 
 }
 
-button{
+a.btn {
+    color: azure;
+
+}
+
+button {
     background-color: #595959;
     color: white;
     width: 100px;
     height: 40px;
     font-size: 20px;
-    border-radius:10px;
+    border-radius: 10px;
     border-width: 5px;
 }
-
