@@ -1,4 +1,4 @@
-body{
+body {
     width: 1240px;
     margin: auto;
     min-height: 100%;
@@ -12,26 +12,27 @@ body{
     height: 20px;
 }
 
-.wapper{
+.wapper {
     width: 1024px;
-    
+
 }
 
-div.container{
+div.container {
     background-color: white;
     height: 40px;
     float: left;
 }
 
-h1{
-    font-size: 40px;;
+h1 {
+    font-size: 40px;
+    ;
     margin-bottom: 0%;
     float: left;
     font-family: serif;
 
 }
 
-img{
+img {
     width: 45px;
     height: 45px;
     float: left;
@@ -39,84 +40,85 @@ img{
     margin-left: 7px;
 }
 
-div.header{
+div.header {
     width: 1240px;
     height: 30px;
     margin-top: 20px;
 }
 
-.top-line{
+.top-line {
     background-color: #F6D720;
     height: 20px;
-    
+
 
 }
 
-.bottom-line{
+.bottom-line {
     background-color: #C00000;
     height: 10px;
 }
 
-div.Form{
+div.Form {
     margin-top: 40px;
     margin-left: 400px;
 }
 
-div.Form-Item{
+div.Form-Item {
     margin-top: 10px;
 }
 
-span.Form-Item-Label-Required{
+span.Form-Item-Label-Required {
     color: #C00000;
 }
 
-label.Form-Item-Label{
+label.Form-Item-Label {
     font-family: serif;
 }
 
-input.Form-Item-Input{
+input.Form-Item-Input {
     width: 400px;
     height: 25px;
     font-size: 1.5em;
     text-align: center;
-    border-radius:10px;
-    border-width:medium ;
-    text-decoration-color:black;
-    
+    border-radius: 10px;
+    border-width: medium;
+    text-decoration-color: black;
+
 }
 
-select{
+select {
     width: 405px;
     height: 27px;
     font-size: 1.1em;
     text-align: center;
-    border-radius:10px;
-    border-width:medium ;
+    border-radius: 10px;
+    border-width: medium;
 }
 
-textarea.textarea{
+textarea.textarea {
     width: 400px;
     height: 60px;
     text-align: top;
     font-size: 1.3em;
-    border-radius:10px;
-    border-width:medium ;
+    border-radius: 10px;
+    border-width: medium;
 }
 
 
 
-div.footer{
+div.footer {
     margin-left: 435px;
     margin-top: 30px;
 }
 
-button{
+button {
     margin-left: 40px;
     width: 100px;
     height: 40px;
-    border-radius:10px;
-    border-width:medium ;
+    border-radius: 10px;
+    border-width: medium;
     background: #595959;
     color: white;
-    
+    font-size: medium;
+
 }
