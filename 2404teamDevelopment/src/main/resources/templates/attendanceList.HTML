@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠一覧</title>
+    <link rel="stylesheet" href="../static/css/attendanceList.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="clearfix">
+            <div class="container">
+                <h1>勤怠一覧</h1>
+                <img src="../img/record.jpg" alt="レコード">
+            </div>
+        </div>
+        <div class="header">
+            <div class="top-line"></div>
+            <div class="bottom-line"></div>
+        </div>
+        <table class="table table=striped">
+            <thead>
+                <tr class="list">
+                    <th class="attendance_id">勤怠ID</th>
+                    <th class="user_id">ユーザーID</th>
+                    <th class="status">ステータス</th>
+                    <th class="going_date">出勤日</th>
+                    <th class="going_time">出勤時間</th>
+                    <th class="leaving__date">退勤日</th>
+                    <th class="leaving__time">退勤時間</th>
+                    <th class="hours_worked">稼働時間</th>
+                    <th class="break_time">休憩時間</th>
+                    <th class="correction">修正理由</th>
+                    <th class="remarks">備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="align-middle">
+                    <td class="attendance_id"></td>
+                    <td class="user_id"></td>
+                    <td class="status"></td>
+                    <td class="going_date"></td>
+                    <td class="going_time"></td>
+                    <td class="leaving__date"></td>
+                    <td class="leaving__time"></td>
+                    <td class="hours_worked"></td>
+                    <td class="break_time"></td>
+                    <td class="correction"></td>
+                    <td class="remarks"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">
+            <a th:href="@{feature/myPage}" class="back_button"><button>戻る</button></a>
+        </div>
+    </div>
+</body>
+
+</html>
