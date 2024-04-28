@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta chaset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー一覧</title>
-    <link rel="stylesheet" href="../static/css/userList.css">
+    <link rel="stylesheet" href="../static/css/userList.css" >
 </head>
 
 <body>
     <div class="wrapper">
         <div class="clearfix">
-            <div class="container">
+            <div class="top">
                 <h1>ユーザー一覧</h1><img src="../img/UserImg.png" alt="レコード">
             </div>
         </div>
@@ -19,7 +19,7 @@
             <div class="top-line"></div>
             <div class="bottom-line"></div>
         </div>
-        <table class="table table=striped">
+        <table class="table">
             <thead>
                 <tr class="list">
                     <th class="ID">ID</th>
@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="UserList : ${UserList}" th:object="${UserList}" class="align-middle">
+                <tr th:each="userlist : ${userlist}" th:object="${userlist}" class="UserList">
                     <td class="ID" th:text="*{user_id}"></td>
                     <td class="name" th:text="*{name}"></td>
                     <td class="furigana" th:text="*{furigana}"></td>

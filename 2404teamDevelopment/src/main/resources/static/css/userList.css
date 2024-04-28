@@ -17,7 +17,7 @@ body {
 
 }
 
-div.container {
+div.top {
     background-color: white;
     height: 40px;
     float: left;
@@ -109,14 +109,14 @@ th.btn{
    width: 75px ; 
 }
 
-tr.align-middle {
+tr.UserList {
     height: 40px;
     background: #F2F2F2;
     margin-top: 5px;
 
 }
 
-tr.tr:nth-child(odd).align-middle {
+tr.tr:nth-child(odd).UserList {
     background: #FFFFFF;
 
 }
