@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <meta chaset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー一覧</title>
@@ -27,6 +27,8 @@
                     <th class="furigana">フリガナ</th>
                     <th class="mail">メールアドレス</th>
                     <th class="pass">パスワード</th>
+                    <th class="btn"></th>
+                    <th class="btn"></th>
                 </tr>
             </thead>
             <tbody>
@@ -36,12 +38,11 @@
                     <td class="furigana" th:text="*{furigana}"></td>
                     <td class="mail" th:text="*{mail}"></td>
                     <td class="pass" th:text="*{password}"></td>
+                    <td><a th:href="@{feature/goingRegister}"><button class="left">出勤登録</button></a></td>
+                    <td><a th:href="@{feature/attendanceLIst/list}"><button class="rigth">勤怠一覧</button></a></td>
                 </tr>
             </tbody>
         </table>
-        <div class="footer-end">
-            <a th:href="@{feature/myPage}" class="btn"> <button>戻る</button></a>
-        </div>
     </div>
 </body>
 

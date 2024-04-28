@@ -95,14 +95,18 @@ th.furigana {
 }
 
 th.mail {
-    width: 500px;
+    width: 300px;
     font-size: 20px;
 
 }
 
 th.pass {
-    width: 400px;
+    width: 250px;
     font-size: 20px;
+}
+
+th.btn{
+   width: 75px ; 
 }
 
 tr.align-middle {
@@ -138,25 +142,25 @@ td.mail {
 
 }
 
-div.footer-end {
-    text-align: center;
-    height: 50px;
-    font-size: 30px;
-    margin-top: 20px;
-
-}
-
-a.btn {
-    color: azure;
+td.pass {
+    border-right: 1px dashed black;
 
 }
 
 button {
-    background-color: #595959;
-    color: white;
+    color: black;
     width: 100px;
     height: 40px;
-    font-size: 20px;
+    font-size: 15px;
     border-radius: 10px;
-    border-width: 5px;
+    border-width: 3px;
+}
+
+button.left{
+    background-color: #F9E467;
+
+}
+
+button.rigth{
+    background-color: #FF8989;
 }
