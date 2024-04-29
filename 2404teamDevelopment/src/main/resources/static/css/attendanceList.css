@@ -1,5 +1,5 @@
 body {
-    width: 2000px;
+    width: 1240px;
     margin: auto;
     min-height: 100%;
 }
@@ -12,8 +12,8 @@ body {
 }
 
 .wrapper {
-    width: 2000px;
-    margin: auto; /* 追加 */
+    width: 1240px;
+    margin: auto; 
     min-height: 100%;
 }
 
@@ -39,7 +39,7 @@ img {
 }
 
 div.header {
-    width: 2000px;
+    width: 1240px;
     height: 30px;
     margin-top: 20px;
 }
@@ -56,7 +56,7 @@ div.header {
 
 table {
     margin-top: 20px;
-    width: 2000px;
+    width: 1240px;
     border-collapse: collapse;
 }
 
@@ -72,61 +72,61 @@ tr.list {
 
 th.attendance_id {
     width: 100px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 th.user_id {
     width: 150px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 th.status {
     width: 150px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 th.going_date {
-    width: 100px;
-    font-size: 20px;
+    width: 150px;
+    font-size: 17px;
 }
 
 th.going_time {
     width: 100px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 th.leaving_date {
-    width: 100px;
-    font-size: 20px;
+    width: 150px;
+    font-size: 17px;
 }
 
 th.leaving_time {
     width: 100px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 th.hours_worked {
     width: 100px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 th.break_time {
     width: 100px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 th.correction {
     width: 100px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 th.remarks {
     width: 200px;
-    font-size: 20px;
+    font-size: 17px;
 }
 th.btn {
     width: 200px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 tr.align-middle {
@@ -189,7 +189,7 @@ div.footer {
     margin-top: 20px;
 }
 
-.leavingbutton button {
+.leaving_button button {
     color: black;
     background-color: #F9E467;
 }
