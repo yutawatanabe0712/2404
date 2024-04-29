@@ -5,14 +5,14 @@
     <meta chaset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー一覧</title>
-    <link rel="stylesheet" th:href="@{css/userList.css}" >
+    <link th:href="@{/css/userList.css}" rel="stylesheet"  >
 </head>
 
 <body>
     <div class="wrapper">
         <div class="clearfix">
             <div class="top">
-                <h1>ユーザー一覧</h1><img src="../img/UserImg.png" alt="レコード">
+                <h1>ユーザー一覧</h1><img th:src="@{/images/UserImg.png}" alt="レコード">
             </div>
         </div>
         <div class="header">
