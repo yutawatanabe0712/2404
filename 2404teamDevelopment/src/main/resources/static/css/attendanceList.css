@@ -1,5 +1,5 @@
 body {
-    width: 1240px;
+    width: 2000px;
     margin: auto;
     min-height: 100%;
 }
@@ -12,7 +12,7 @@ body {
 }
 
 .wrapper {
-    width: 1024px;
+    width: 2000px;
     margin: auto; /* 追加 */
     min-height: 100%;
 }
@@ -39,7 +39,7 @@ img {
 }
 
 div.header {
-    width: 1240px;
+    width: 2000px;
     height: 30px;
     margin-top: 20px;
 }
@@ -56,7 +56,7 @@ div.header {
 
 table {
     margin-top: 20px;
-    width: 1240px;
+    width: 2000px;
     border-collapse: collapse;
 }
 
@@ -124,13 +124,16 @@ th.remarks {
     width: 200px;
     font-size: 20px;
 }
+th.btn {
+    width: 200px;
+    font-size: 20px;
+}
 
 tr.align-middle {
     height: 40px;
     background: #F2F2F2;
     margin-top: 5px;
 }
-
 tr.tr:nth-child(odd).align-middle {
     background: #FFFFFF;
 }
@@ -186,14 +189,15 @@ div.footer {
     margin-top: 20px;
 }
 
-a.back_button {
-    color: azure;
+.leavingbutton button {
+    color: black;
+    background-color: #F9E467;
 }
 
 button {
     background-color: #595959;
     color: white;
-    width: 100px;
+    width: 150px;
     height: 40px;
     font-size: 20px;
     border-radius: 100px;
