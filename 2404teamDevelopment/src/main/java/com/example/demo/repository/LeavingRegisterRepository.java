@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entity.LeavingRegisterEntity;
 
 /**
- * ユーザー情報 Repository
+ * 勤怠情報 Repository
  */
 @Repository
 public  interface LeavingRegisterRepository extends JpaRepository<LeavingRegisterEntity, Integer> {
