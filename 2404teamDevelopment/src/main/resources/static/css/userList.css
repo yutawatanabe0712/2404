@@ -116,7 +116,7 @@ tr.UserList {
 
 }
 
-tr.tr:nth-child(odd).UserList {
+tbody tr:nth-child(odd) td {
     background: #FFFFFF;
 
 }

@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="userlist : ${userlist}" th:object="${userlist}" class="UserList">
+                <tr th:each="userlist : ${userlist}" th:object="${userlist}" class="UserList" >
                     <td class="ID" th:text="*{user_id}"></td>
                     <td class="name" th:text="*{name}"></td>
                     <td class="furigana" th:text="*{furigana}"></td>

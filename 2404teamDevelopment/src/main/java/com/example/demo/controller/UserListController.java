@@ -13,23 +13,18 @@ import com.example.demo.service.UserListService;
 
 @Controller
 public class UserListController {
-	
-	
 	  /**
 	   * ユーザー情報 Service
 	   */
 	  @Autowired
 	  UserListService userlistService;
 	
-
 	 @GetMapping("/featuer/userList")
 	 public String userlist(Model model) {
 		 List<UserListEntity> userlist = userlistService.searchAll();
 		 model.addAttribute("userlist", userlist);
 		 
 		 return "userList";
-	
-
 	 }
 }	 
 	 
