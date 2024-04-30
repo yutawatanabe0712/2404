@@ -1,5 +1,5 @@
 body {
-    width: 1240px;
+    width: 1500px;
     margin: auto;
     min-height: 100%;
 
@@ -13,7 +13,7 @@ body {
 }
 
 .wapper {
-    width: 1024px;
+    width: 1500px;
 
 }
 
@@ -41,7 +41,7 @@ img {
 }
 
 div.header {
-    width: 1240px;
+    width: 1500px;
     height: 30px;
     margin-top: 20px;
 }
@@ -60,7 +60,7 @@ div.header {
 
 table {
     margin-top: 20px;
-    width: 1240px;
+    width: 1500px;
     border-collapse: collapse;
 
 }
