@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.dto.LeavingRegisterRequest;
 import com.example.demo.entity.LeavingRegisterEntity;
 import com.example.demo.repository.LeavingRegisterRepository;
 
@@ -35,6 +36,22 @@ public class LeavingRegisterService {
 	    */
 	   public LeavingRegisterEntity findById(Integer attendance_id) {
 	       return leavingRegisterRepository.getOne(attendance_id);
+	   }
+	   
+	   /**
+	    * 退勤情報 新規登録
+	    * @param  leavingRegister 退勤情報
+	    */
+	   public void create (LeavingRegisterRequest leavingRegisterRequest) {
+	   LeavingRegisterEntity leavingRegister = new LeavingRegisterEntity();
+	   leavingRegister.setStatus(leavingRegisterRequest.getStatus());
+	   leavingRegister.setLeaving_date(leavingRegisterRequest.getLeaving_date());
+	   leavingRegister.setLeaving_time(leavingRegisterRequest.getLeaving_time());
+	   leavingRegister.setBreak_time(leavingRegisterRequest.getBreak_time());
+	   leavingRegister.setRemarks(leavingRegisterRequest.getRemarks());
+	   leavingRegisterRepository.save(leavingRegister);
+	   
+	   
 	   }
 
 }
