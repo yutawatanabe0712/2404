@@ -28,5 +28,13 @@ public class LeavingRegisterService {
 	  public List<LeavingRegisterEntity> searchAll() {
 	    return leavingRegisterRepository.findAll();
 	  }
+	  
+	   /**
+	    * 勤怠情報 主キー検索
+	    * @return  検索結果
+	    */
+	   public LeavingRegisterEntity findById(Integer attendance_id) {
+	       return leavingRegisterRepository.getOne(attendance_id);
+	   }
 
 }

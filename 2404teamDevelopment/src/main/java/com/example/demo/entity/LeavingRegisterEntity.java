@@ -1,7 +1,6 @@
 package com.example.demo.entity;
 
 
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,66 +19,62 @@ import lombok.Data;
 @Entity
 @Table(name = "attendance_tb", schema = "public")
 public class LeavingRegisterEntity {
-	/**
-	   * ID
-	   */
+	  /**
+	  * ID
+	  */
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.IDENTITY)
 	  @Column(name = "attendance_id")
 	  private Integer attendance_id;
-	  /**
+	   /**
 	   * ユーザーID
 	   */
 	  @Column(name = "user_id")
 	  private String nameuser_id;
-	  /**
+	   /**
 	   * ステータス
 	   */
 	  @Column(name = "status")
 	  private String status;
-	  /**
+	   /**
 	   * 出勤日
 	   */
 	  @Column(name = "going_date")
 	  private Date going_dat;
-	  /**
+	   /**
 	   * 出勤時間
 	   */
 	  @Column(name = "going_time")
 	  private Date going_time;
-	  /**
+	   /**
 	   * 退勤日
 	   */
 	  @Column(name = "leaving_date")
 	  private Date leaving_date;
-	  /**
+	   /**
 	   * 退勤時間
 	   */
 	  @Column(name = "leaving_time")
 	  private Date leaving_time;
-	  /**
+	   /**
 	   * 稼動時間
 	   */
 	  @Column(name = "working_time")
 	  private Date working_time;
-	  /**
+	   /**
 	   * 休憩時間
 	   */
 	  @Column(name = "break_time")
 	  private Date break_time;
-	  /**
+	   /**
 	   * 修正理由
 	   */
 	  @Column(name = "edit_reason")
 	  private String edit_reason;
-	  /**
+	   /**
 	   * 備考
 	   */
 	  @Column(name = "remarks")
-	  private String remarks;
-	  
-	  
-	  
-	  
+	  private String remarks;	
 	  
 }
