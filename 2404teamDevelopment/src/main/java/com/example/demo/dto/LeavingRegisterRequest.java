@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 
 /**
-* 科目情報 リクエストデータ
+* 退勤情報 リクエストデータ
 */
 @Data
 public class LeavingRegisterRequest implements Serializable{
