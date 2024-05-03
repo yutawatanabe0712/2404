@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.LeavingRegisterRequest;
+import com.example.demo.dto.LeavingRegisterUpdateRequest;
 import com.example.demo.entity.LeavingRegisterEntity;
 import com.example.demo.service.LeavingRegisterService;
 
@@ -31,18 +32,43 @@ public class LeavingRegisterController {
 	* @param model Model
 	* @return 退勤登録画面
 	*/
-	@GetMapping("/featuer/leavingRegister")
-	public String leavingregister(Model model) {
-		LeavingRegisterEntity leavingRegister = leavingRegisterService.findById(1);
-	    LeavingRegisterRequest leavingRegisterUpdateRequest = new LeavingRegisterRequest();
-		leavingRegisterUpdateRequest.setAttendance_id(leavingRegister.getAttendance_id());
-		leavingRegisterUpdateRequest.setNameuser_id(leavingRegister.getNameuser_id());
-		 model.addAttribute("leavingRegisterUpdateRequest",leavingRegisterUpdateRequest);	
-		return "leavingRegister";
-	}
+	//@GetMapping("/featuer/leavingRegister")
+	//public String leavingregister(Model model) {
+	//	LeavingRegisterEntity leavingRegister = leavingRegisterService.findById(1);
+	//  LeavingRegisterRequest leavingRegisterUpdateRequest = new LeavingRegisterRequest();
+	//	leavingRegisterUpdateRequest.setAttendance_id(leavingRegister.getAttendance_id());
+	//	leavingRegisterUpdateRequest.setNameuser_id(leavingRegister.getNameuser_id());
+	//	 model.addAttribute("leavingRegisterUpdateRequest",leavingRegisterUpdateRequest);	
+	//	return "leavingRegister";
+	//}
 	
 	 /**
-	  * 退勤新規登録
+	 * 退勤登録画面を表示
+	 * @param id 表示する勤怠ID
+	 * @param model Model
+	 * @return 退勤登録画面
+	 */
+	@GetMapping("/featuer/leavingRegister")
+	public String leavingRegister(Model model) {
+		LeavingRegisterEntity leavingRegister = leavingRegisterService.findById(1);
+		LeavingRegisterUpdateRequest leavingRegisterUpdateRequest= new LeavingRegisterUpdateRequest();
+		leavingRegisterUpdateRequest.setAttendance_id(leavingRegister.getAttendance_id());
+		leavingRegisterUpdateRequest.setNameuser_id(leavingRegister.getNameuser_id());
+		leavingRegisterUpdateRequest.setStatus(leavingRegister.getStatus());
+		leavingRegisterUpdateRequest.setLeaving_date(leavingRegister.getLeaving_date());
+		leavingRegisterUpdateRequest.setLeaving_time(leavingRegister.getLeaving_time());
+		leavingRegisterUpdateRequest.setBreak_time(leavingRegister.getBreak_time());
+		leavingRegisterUpdateRequest.setRemarks(leavingRegister.getRemarks());
+		 model.addAttribute("leavingRegisterUpdateRequest",leavingRegisterUpdateRequest);	
+		return "leavingRegister";
+		
+		
+	}
+	
+	
+	
+	 /**
+	  * 退勤登録
 	  * @param  leavingRegisterRequest リクエストデータ
 	  * @param  model Model
 	  * @return  退勤画面
@@ -60,9 +86,10 @@ public class LeavingRegisterController {
 			 return "leavingRegister";
 		 }
 		 
-		 
+		 // 勤怠一覧の更新
 		 leavingRegisterService.create(leavingRegisterRequest);
-		 return "test";
+		 return "redirect:/featuer/leavingRegister";
 		 
 	 }
+	 
 }
