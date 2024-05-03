@@ -75,20 +75,20 @@ public class LeavingRegisterController {
 	  */
 	 @PostMapping("/featuer/leavingRegister/create")
 	 public String leavingRegisterCreate(@Validated LeavingRegisterRequest leavingRegisterRequest,BindingResult result, Model model) {
-		 if (result.hasErrors()) {
+		 //if (result.hasErrors()) {
 			// 入力チェックエラーの場合
-			 List<String> errorList = new ArrayList<String>();
-			 for (ObjectError error : result.getAllErrors()) {
-			        errorList.add(error.getDefaultMessage());
+			// List<String> errorList = new ArrayList<String>();
+			// for (ObjectError error : result.getAllErrors()) {
+			       // errorList.add(error.getDefaultMessage());
 			    }
 			 // エラー判定後の画面遷移
-			 model.addAttribute("validationError", errorList);
-			 return "leavingRegister";
-		 }
+			// model.addAttribute("validationError", errorList);
+			// return "leavingRegister";
+		 //}
 		 
 		 // 勤怠一覧の更新
 		 leavingRegisterService.create(leavingRegisterRequest);
-		 return "redirect:/featuer/leavingRegister/create";
+		 return "redirect:/featuer/leavingRegister/";
 		 
 	 }
 	 

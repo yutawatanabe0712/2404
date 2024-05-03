@@ -18,7 +18,7 @@ public class LeavingRegisterRequest implements Serializable{
 	  * ユーザーID
 	  */
 	  //@NotEmpty(message = "ユーザーIDを入力してください")
-	  private String nameuser_id;
+	  private Integer nameuser_id;
 	  /**
 	  * ステータス
 	  */

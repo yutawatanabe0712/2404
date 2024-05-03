@@ -30,7 +30,7 @@ public class LeavingRegisterEntity {
 	   * ユーザーID
 	   */
 	  @Column(name = "user_id")
-	  private String nameuser_id;
+	  private Integer nameuser_id;
 	   /**
 	   * ステータス
 	   */
