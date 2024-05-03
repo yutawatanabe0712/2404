@@ -1,0 +1,166 @@
+body {
+    width: 1500px;
+    margin: auto;
+    min-height: 100%;
+
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 20px;
+}
+
+.wapper {
+    width: 1500px;
+
+}
+
+div.top {
+    background-color: white;
+    height: 40px;
+    float: left;
+}
+
+h1 {
+    font-size: 40px;
+    ;
+    margin-bottom: 0%;
+    float: left;
+    font-family: serif;
+
+}
+
+img {
+    width: 45px;
+    height: 45px;
+    float: left;
+    margin-top: 33px;
+    margin-left: 7px;
+}
+
+div.header {
+    width: 1500px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.top-line {
+    background-color: #F6D720;
+    height: 20px;
+
+
+}
+
+.bottom-line {
+    background-color: #C00000;
+    height: 10px;
+}
+
+table {
+    margin-top: 20px;
+    width: 1500px;
+    border-collapse: collapse;
+
+}
+
+tr.list {
+    font-family: serif;
+    text-align: left;
+    vertical-align: bottom;
+    background-color: black;
+    color: white;
+    height: 50px;
+    border: 0px none;
+
+}
+
+th.ID {
+    width: 70px;
+    font-size: 20px;
+
+}
+
+th.name {
+    width: 150px;
+    font-size: 20px;
+
+}
+
+th.furigana {
+    width: 170px;
+    font-size: 20px;
+
+}
+
+th.mail {
+    width: 300px;
+    font-size: 20px;
+
+}
+
+th.pass {
+    width: 250px;
+    font-size: 20px;
+}
+
+th.btn{
+   width: 75px ; 
+}
+
+tr.UserList {
+    height: 40px;
+    background: #F2F2F2;
+    margin-top: 5px;
+
+}
+
+tbody tr:nth-child(odd) td {
+    background: #FFFFFF;
+
+}
+
+td.ID {
+    border-right: 1px dashed black;
+
+
+}
+
+td.name {
+    border-right: 1px dashed black;
+
+}
+
+td.furigana {
+    border-right: 1px dashed black;
+
+}
+
+td.mail {
+    border-right: 1px dashed black;
+
+}
+
+td.pass {
+    border-right: 1px dashed black;
+
+}
+
+button {
+    color: black;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 10px;
+    border-width: 3px;
+}
+
+button.left{
+    background-color: #F9E467;
+
+}
+
+button.rigth{
+    background-color: #FF8989;
+}

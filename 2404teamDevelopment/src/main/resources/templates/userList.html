@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta chaset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー一覧</title>
+    <link th:href="@{/css/userList.css}" rel="stylesheet"  >
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="clearfix">
+            <div class="top">
+                <h1>ユーザー一覧</h1><img th:src="@{/images/UserImg.png}" alt="レコード">
+            </div>
+        </div>
+        <div class="header">
+            <div class="top-line"></div>
+            <div class="bottom-line"></div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr class="list">
+                    <th class="ID">ID</th>
+                    <th class="name">名前</th>
+                    <th class="furigana">フリガナ</th>
+                    <th class="mail">メールアドレス</th>
+                    <th class="pass">パスワード</th>
+                    <th class="btn"></th>
+                    <th class="btn"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="userlist : ${userlist}" th:object="${userlist}" class="UserList" >
+                    <td class="ID" th:text="*{user_id}"></td>
+                    <td class="name" th:text="*{name}"></td>
+                    <td class="furigana" th:text="*{furigana}"></td>
+                    <td class="mail" th:text="*{mail}"></td>
+                    <td class="pass" th:text="*{password}"></td>
+                    <td><a th:href="@{feature/goingRegister}"><button class="left">出勤登録</button></a></td>
+                    <td><a th:href="@{feature/attendanceLIst/list}"><button class="rigth">勤怠一覧</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
