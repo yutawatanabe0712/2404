@@ -21,11 +21,9 @@
       <div class="bottom-line"></div>
     </div>
 
-    <div th:if="${validationError}" th:each="error : ${validationError}">
-      <label class="text-danger" th:text="${error}"></label>
     </div>
 
-    <div th:object="${leavingRegisterUpdateRequest}" >
+    <form th:action="@{/featuer/leavingRegister/create}" th:object="${leavingRegisterUpdateRequest}" method="post" >
 
       <div class="Form">
         <div class="Form-Item">
@@ -83,9 +81,9 @@
 
       <div class="footer">
         <a th:href="@{feature/attendanceLIst/list}" class="btn"> <button>戻る</button></a>
-        <a th:href="@{/featuer/leavingRegister}" class="btn"> <button>登録</button></a>
+        <button th:href="@{/featuer/leavingRegister}" class="btn" type="submit">登録</button>
       </div>
-    </div>
+    </form>
   </div>
 </body>
 

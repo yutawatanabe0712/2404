@@ -73,7 +73,7 @@ public class LeavingRegisterController {
 	  * @param  model Model
 	  * @return  退勤画面
 	  */
-	 @PostMapping("/featuer/leavingRegister")
+	 @PostMapping("/featuer/leavingRegister/create")
 	 public String leavingRegisterCreate(@Validated LeavingRegisterRequest leavingRegisterRequest,BindingResult result, Model model) {
 		 if (result.hasErrors()) {
 			// 入力チェックエラーの場合
@@ -88,7 +88,7 @@ public class LeavingRegisterController {
 		 
 		 // 勤怠一覧の更新
 		 leavingRegisterService.create(leavingRegisterRequest);
-		 return "redirect:/featuer/leavingRegister";
+		 return "redirect:/featuer/leavingRegister/create";
 		 
 	 }
 	 
