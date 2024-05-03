@@ -1,13 +1,9 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,7 +49,7 @@ public class LeavingRegisterController {
 		LeavingRegisterEntity leavingRegister = leavingRegisterService.findById(1);
 		LeavingRegisterUpdateRequest leavingRegisterUpdateRequest= new LeavingRegisterUpdateRequest();
 		leavingRegisterUpdateRequest.setAttendance_id(leavingRegister.getAttendance_id());
-		leavingRegisterUpdateRequest.setNameuser_id(leavingRegister.getNameuser_id());
+		leavingRegisterUpdateRequest.setUser_id(leavingRegister.getUser_id());
 		leavingRegisterUpdateRequest.setStatus(leavingRegister.getStatus());
 		leavingRegisterUpdateRequest.setLeaving_date(leavingRegister.getLeaving_date());
 		leavingRegisterUpdateRequest.setLeaving_time(leavingRegister.getLeaving_time());
@@ -80,7 +76,7 @@ public class LeavingRegisterController {
 			// List<String> errorList = new ArrayList<String>();
 			// for (ObjectError error : result.getAllErrors()) {
 			       // errorList.add(error.getDefaultMessage());
-			    }
+			    //}
 			 // エラー判定後の画面遷移
 			// model.addAttribute("validationError", errorList);
 			// return "leavingRegister";
@@ -88,7 +84,7 @@ public class LeavingRegisterController {
 		 
 		 // 勤怠一覧の更新
 		 leavingRegisterService.create(leavingRegisterRequest);
-		 return "redirect:/featuer/leavingRegister/";
+		 return "redirect:/featuer/leavingRegister/create";
 		 
 	 }
 	 

@@ -44,6 +44,8 @@ public class LeavingRegisterService {
 	    */
 	   public void create (LeavingRegisterRequest leavingRegisterRequest) {
 	   LeavingRegisterEntity leavingRegister = new LeavingRegisterEntity();
+	   leavingRegister.setAttendance_id(leavingRegisterRequest.getAttendance_id());
+	   leavingRegister.setUser_id(leavingRegisterRequest.getUser_id());
 	   leavingRegister.setStatus(leavingRegisterRequest.getStatus());
 	   leavingRegister.setLeaving_date(leavingRegisterRequest.getLeaving_date());
 	   leavingRegister.setLeaving_time(leavingRegisterRequest.getLeaving_time());
