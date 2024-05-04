@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠一覧</title>
+    <link th:href="@{/css/attendanceList.css}" rel="stylesheet"  >
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="clearfix">
+            <div class="container">
+                <h1>勤怠一覧</h1>
+                <img th:src="@{/images/UserImg.png}" alt="レコード">
+            </div>
+        </div>
+        <div class="header">
+            <div class="top-line"></div>
+            <div class="bottom-line"></div>
+        </div>
+        <table class="table table=striped" border="1" style="border-collapse: collapse">
+            <thead>
+                <tr class="list">
+                    <th class="attendance_id">勤怠ID</th>
+                    <th class="user_id">ユーザーID</th>
+                    <th class="status">ステータス</th>
+                    <th class="going_date">出勤日</th>
+                    <th class="going_time">出勤時間</th>
+                    <th class="leaving_date">退勤日</th>
+                    <th class="leaving_time">退勤時間</th>
+                    <th class="hours_worked">稼働時間</th>
+                    <th class="break_time">休憩時間</th>
+                    <th class="correction">修正理由</th>
+                    <th class="remarks">備考</th>
+                    <th class="btn"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="attendancelist : ${attendancelist}" th:object="${attendancelist}" class="align-middle" >
+                    <td class="attendance_id" th:text="*{attendance_id}" ></td>
+                    <td class="user_id" th:text="*{user_id}"></td>
+                    <td class="status" th:text="*{status}"></td>
+                    <td class="going_date" th:text="*{going_date}"></td>
+                    <td class="going_time" th:text="*{going_time}"></td>
+                    <td class="leaving_date" th:text="*{leaving_date}"></td>
+                    <td class="leaving_time" th:text="*{leaving_time}"></td>
+                    <td class="hours_worked" th:text="*{working_time}"></td>
+                    <td class="break_time" th:text="*{break_time}"></td>
+                    <td class="correction" th:text="*{edit_reason}"></td>
+                    <td class="remarks" th:text="*{remarks}"></td>
+                    <td class="leaving_button"><button>退勤登録</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">
+            <a th:href="@{featuer/userList}" class="back_button"> <button>戻る</button></a>
+        </div>
+    </div>
+</body>
+
+</html>
