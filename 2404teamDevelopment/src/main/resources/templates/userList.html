@@ -39,7 +39,8 @@
                     <td class="mail" th:text="*{mail}"></td>
                     <td class="pass" th:text="*{password}"></td>
                     <td><a th:href="@{feature/goingRegister}"><button class="left">出勤登録</button></a></td>
-                    <td><a th:href="@{feature/attendanceLIst/list}"><button class="rigth">勤怠一覧</button></a></td>
+                    <td><a th:href="@{attendanceLIst/list/{user_id}(user_id = *{user_id})}" ><button class="rigth">勤怠一覧</button></a></td>
+                    
                 </tr>
             </tbody>
         </table>
