@@ -7,6 +7,10 @@ import com.example.demo.dto.GoingRegisterRequest;
 import com.example.demo.entity.GoingRegisterEntity;
 import com.example.demo.repository.GoingRegisterRepository;
 
+/**
+ * 出勤登録に関連するビジネスロジックを提供するサービスクラス。
+ * {@link GoingRegisterRepository} を使用して、出勤データの永続化を行う。
+ */
 @Service
 public class GoingRegisterService {
 
@@ -14,15 +18,18 @@ public class GoingRegisterService {
 	private GoingRegisterRepository goingRegisterRepository;
 
 	/**
-	 * 出勤登録処理サービス
-	 * @param goingRegisterRequest
+	 * 出勤データをデータベースに登録する。
+	 * このメソッドは、受け取った {@link GoingRegisterRequest} オブジェクトから {@link GoingRegisterEntity} オブジェクトを生成し、
+	 * データベースに保存する。
+	 *
+	 * @param goingRegisterRequest 出勤登録のリクエストデータ。ユーザーID、ステータス、出勤日、出勤時間、備考を含む。
 	 */
 	public void create(GoingRegisterRequest goingRegisterRequest) {
 		GoingRegisterEntity goingRegisterEntity = new GoingRegisterEntity();
-		goingRegisterEntity.setUser_id(goingRegisterRequest.getUser_id());
+		goingRegisterEntity.setUserId(goingRegisterRequest.getUserId());
 		goingRegisterEntity.setStatus(goingRegisterRequest.getStatus());
-		goingRegisterEntity.setGoing_date(goingRegisterRequest.getGoing_date());
-		goingRegisterEntity.setGoing_time(goingRegisterRequest.getGoing_time());
+		goingRegisterEntity.setGoingDate(goingRegisterRequest.getGoingDate());
+		goingRegisterEntity.setGoingTime(goingRegisterRequest.getGoingTime());
 		goingRegisterEntity.setRemarks(goingRegisterRequest.getRemarks());
 		goingRegisterRepository.save(goingRegisterEntity);
 	}

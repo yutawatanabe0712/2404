@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,21 +22,21 @@ public class GoingRegisterEntity {
 	@Id
 	@Column(name = "attendance_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer attendance_id;
+	private Integer attendanceId;
 
 	@Column(name = "user_id")
-	private Integer user_id;
+	private Integer userId;
 
 	@Column(name = "status")
 	private String status;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "going_date")
-	private Date going_date;
+	private LocalDate goingDate;
 
 	@DateTimeFormat(pattern = "HH:mm")
 	@Column(name = "going_time")
-	private Date going_time;
+	private LocalTime goingTime;
 
 	@Column(name = "remarks")
 	private String remarks;
