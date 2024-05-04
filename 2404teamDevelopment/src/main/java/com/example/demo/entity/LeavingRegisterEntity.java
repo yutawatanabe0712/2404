@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -50,12 +52,12 @@ public class LeavingRegisterEntity {
 	   * 退勤日
 	   */
 	  @Column(name = "leaving_date")
-	  private Date leaving_date;
+	  private LocalDate leaving_date;
 	   /**
 	   * 退勤時間
 	   */
 	  @Column(name = "leaving_time")
-	  private Date leaving_time;
+	  private LocalTime leaving_time;
 	   /**
 	   * 稼動時間
 	   */
@@ -65,7 +67,7 @@ public class LeavingRegisterEntity {
 	   * 休憩時間
 	   */
 	  @Column(name = "break_time")
-	  private Date break_time;
+	  private LocalTime break_time;
 	   /**
 	   * 修正理由
 	   */

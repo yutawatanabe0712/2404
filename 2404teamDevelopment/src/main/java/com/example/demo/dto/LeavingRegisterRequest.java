@@ -1,7 +1,10 @@
 package com.example.demo.dto;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -28,17 +31,21 @@ public class LeavingRegisterRequest implements Serializable{
 	  * 退勤日
 	  */
 	  //@NotEmpty(message = "退勤日を入力してください")
-	  private Date leaving_date;
+	  @DateTimeFormat(pattern = "yyyy/MM/dd")
+	  //@JsonFormat(pattern="yyyy-MM-dd")
+	  private LocalDate leaving_date;
 	  /**
 	  * 退勤時間
 	  */
 	  //@NotEmpty(message = "退勤時間を入力してください")
-	  private Date leaving_time;
+	  @DateTimeFormat(pattern = "HH:mm")
+	  private LocalTime leaving_time;
 	  /**
 	  * 休憩時間
 	  */
 	  //@NotEmpty(message = "休憩時間を入力してください")
-	  private Date break_time;
+	  @DateTimeFormat(pattern = "HH:mm")
+	  private LocalTime break_time;
 	  /**
       * 備考
 	  */
