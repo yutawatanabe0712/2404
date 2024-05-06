@@ -43,7 +43,7 @@ public class LeavingRegisterService {
 	    * @param  leavingRegister 退勤情報
 	    */
 	   public void create (LeavingRegisterRequest leavingRegisterRequest) {
-	   LeavingRegisterEntity leavingRegister = new LeavingRegisterEntity();
+	   LeavingRegisterEntity leavingRegister = leavingRegisterRepository.getOne(leavingRegisterRequest.getAttendance_id());
 	   leavingRegister.setAttendance_id(leavingRegisterRequest.getAttendance_id());
 	   leavingRegister.setUser_id(leavingRegisterRequest.getUser_id());
 	   leavingRegister.setStatus(leavingRegisterRequest.getStatus());

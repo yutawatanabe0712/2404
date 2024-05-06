@@ -84,7 +84,7 @@ public class LeavingRegisterController {
 		 
 		 // 勤怠一覧の更新
 		 leavingRegisterService.create(leavingRegisterRequest);
-		 return "redirect:/featuer/leavingRegister/create";
+		 return "redirect:/featuer/leavingRegister";
 		 
 	 }
 	 

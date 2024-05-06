@@ -42,7 +42,7 @@ public class LeavingRegisterEntity {
 	   * 出勤日
 	   */
 	  @Column(name = "going_date")
-	  private Date going_dat;
+	  private Date going_date;
 	   /**
 	   * 出勤時間
 	   */

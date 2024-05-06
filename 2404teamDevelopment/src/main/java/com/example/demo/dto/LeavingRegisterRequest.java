@@ -6,6 +6,8 @@ import java.time.LocalTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 /**
@@ -31,8 +33,8 @@ public class LeavingRegisterRequest implements Serializable{
 	  * 退勤日
 	  */
 	  //@NotEmpty(message = "退勤日を入力してください")
-	  @DateTimeFormat(pattern = "yyyy/MM/dd")
-	  //@JsonFormat(pattern="yyyy-MM-dd")
+	  @DateTimeFormat(pattern = "yyyy-MM-dd")
+	  @JsonFormat(pattern="yyyy-MM-dd")
 	  private LocalDate leaving_date;
 	  /**
 	  * 退勤時間
