@@ -1,11 +1,16 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.LeavingRegisterRequest;
@@ -22,21 +27,6 @@ public class LeavingRegisterController {
 	@Autowired
 	LeavingRegisterService leavingRegisterService;
 	
-	/**
-	* 退勤登録画面を表示
-	* @param id 表示する勤怠ID
-	* @param model Model
-	* @return 退勤登録画面
-	*/
-	//@GetMapping("/featuer/leavingRegister")
-	//public String leavingregister(Model model) {
-	//	LeavingRegisterEntity leavingRegister = leavingRegisterService.findById(1);
-	//  LeavingRegisterRequest leavingRegisterUpdateRequest = new LeavingRegisterRequest();
-	//	leavingRegisterUpdateRequest.setAttendance_id(leavingRegister.getAttendance_id());
-	//	leavingRegisterUpdateRequest.setNameuser_id(leavingRegister.getNameuser_id());
-	//	 model.addAttribute("leavingRegisterUpdateRequest",leavingRegisterUpdateRequest);	
-	//	return "leavingRegister";
-	//}
 	
 	 /**
 	 * 退勤登録画面を表示
@@ -70,17 +60,17 @@ public class LeavingRegisterController {
 	  * @return  退勤画面
 	  */
 	 @PostMapping("/featuer/leavingRegister/create")
-	 public String leavingRegisterCreate(@Validated LeavingRegisterRequest leavingRegisterRequest,BindingResult result, Model model) {
-		 //if (result.hasErrors()) {
+	 public String leavingRegisterCreate(@Validated @ModelAttribute LeavingRegisterRequest leavingRegisterRequest,BindingResult result, Model model) {
+		 if (result.hasErrors()) {
 			// 入力チェックエラーの場合
-			// List<String> errorList = new ArrayList<String>();
-			// for (ObjectError error : result.getAllErrors()) {
-			       // errorList.add(error.getDefaultMessage());
-			    //}
+			 List<String> errorList = new ArrayList<String>();
+			for (ObjectError error : result.getAllErrors()) {
+			       errorList.add(error.getDefaultMessage());
+			    }
 			 // エラー判定後の画面遷移
-			// model.addAttribute("validationError", errorList);
-			// return "leavingRegister";
-		 //}
+			 model.addAttribute("validationError", errorList);
+			 return "leavingRegister";
+		 }
 		 
 		 // 勤怠一覧の更新
 		 leavingRegisterService.create(leavingRegisterRequest);

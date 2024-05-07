@@ -19,5 +19,7 @@ public class LeavingRegisterUpdateRequest extends LeavingRegisterRequest impleme
 	   */
 	 @NotNull
 	 private Integer attendance_id;
+	 
+	 
 
 }

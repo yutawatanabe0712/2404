@@ -9,6 +9,7 @@
 </head>
 
 <body>
+	   
   <div class="wapper">
     <div class="clearfix">
       <div class="container">
@@ -20,9 +21,14 @@
       <div class="top-line"></div>
       <div class="bottom-line"></div>
     </div>
-
-    </div>
-
+    
+    <table>
+        <tr th:if="${validationError}" th:each="error : ${validationError}">
+            <td style="color: red;" th:text="${error}"></td>
+        </tr>
+       </table>
+       
+   
     <form th:action="@{/featuer/leavingRegister/create}" th:object="${leavingRegisterUpdateRequest}" method="post" >
 
       <div class="Form">
