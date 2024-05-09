@@ -68,7 +68,7 @@ public class LeavingRegisterController {
 			       errorList.add(error.getDefaultMessage());
 			    }
 			 // エラー判定後の画面遷移
-			 model.addAttribute("validationError", errorList);
+			 model.addAttribute("ValidationError", errorList);
 			 return "leavingRegister";
 		 }
 		 

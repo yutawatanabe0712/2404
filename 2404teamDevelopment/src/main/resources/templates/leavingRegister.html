@@ -21,12 +21,10 @@
       <div class="top-line"></div>
       <div class="bottom-line"></div>
     </div>
-
-    <table>
-      <tr th:if="${validationError}" th:each="error : ${validationError}" th:object="${validationError}">
-        <td class="text-danger" th:text="${error}"></td>
-      </tr>
-    </table>
+    
+     <div th:if="${ValidationError}" th:each="error : ${ValidationError}" th:object="${ValidationError}">
+        <label class="text-danger" th:text="${error}"></label>
+    </div>
 
 
     <form th:action="@{/featuer/leavingRegister/create}" th:object="${leavingRegisterUpdateRequest}" method="post">
