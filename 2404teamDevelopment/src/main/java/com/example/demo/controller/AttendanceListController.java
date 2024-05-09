@@ -41,12 +41,24 @@ public class AttendanceListController {
 	    	 AttendanceListResponse target= new AttendanceListResponse();
 	    	 //表示レスポンスへ内容の詰め替え
 	    	 BeanUtils.copyProperties(attendance , target);
-	    	 target.setGoing_date(sdf1.format(attendance.getGoing_date()));
-	    	 target.setGoing_time(sdf2.format(attendance.getGoing_time()));
-	    	 target.setLeaving_date(sdf1.format(attendance.getLeaving_date()));
-	    	 target.setLeaving_time(sdf2.format(attendance.getLeaving_time()));
-	    	 target.setWorking_time(sdf3.format(attendance.getWorking_time()));
-	    	 target.setBreak_time(sdf3.format(attendance.getBreak_time()));
+	    	 if(attendance.getGoing_date() != null) {
+	    		 target.setGoing_date(sdf1.format(attendance.getGoing_date()));
+	    	 }
+	    	 if(attendance.getGoing_time() != null) {
+	    		 target.setGoing_time(sdf2.format(attendance.getGoing_time()));
+	    	 }
+	    	 if(attendance.getLeaving_date() != null) {
+	    		 target.setLeaving_date(sdf1.format(attendance.getLeaving_date()));
+	    	 }
+	    	 if(attendance.getLeaving_time() != null) {
+	    		 target.setLeaving_time(sdf2.format(attendance.getLeaving_time()));
+	    	 }
+	    	 if(attendance.getWorking_time() != null) {
+	    		 target.setWorking_time(sdf3.format(attendance.getWorking_time()));
+	    	 }
+	    	 if(attendance.getBreak_time() != null) {
+	    		 target.setBreak_time(sdf3.format(attendance.getBreak_time()));
+	    	 }
 	        attendanceListResponse.add(target);
 	     }
 	     
