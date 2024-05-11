@@ -11,6 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.LeavingRegisterRequest;
@@ -34,9 +35,9 @@ public class LeavingRegisterController {
 	 * @param model Model
 	 * @return 退勤登録画面
 	 */
-	@GetMapping("/featuer/leavingRegister")
-	public String leavingRegister(Model model) {
-		LeavingRegisterEntity leavingRegister = leavingRegisterService.findById(1);
+	@GetMapping("/featuer/leavingRegister/{id}")
+	public String leavingRegister(@PathVariable Integer id,Model model) {
+		LeavingRegisterEntity leavingRegister = leavingRegisterService.findById(id);
 		LeavingRegisterUpdateRequest leavingRegisterUpdateRequest= new LeavingRegisterUpdateRequest();
 		leavingRegisterUpdateRequest.setAttendance_id(leavingRegister.getAttendance_id());
 		leavingRegisterUpdateRequest.setUser_id(leavingRegister.getUser_id());
@@ -69,12 +70,13 @@ public class LeavingRegisterController {
 			    }
 			 // エラー判定後の画面遷移
 			 model.addAttribute("ValidationError", errorList);
+			 model.addAttribute("leavingRegisterUpdateRequest", leavingRegisterRequest);
 			 return "leavingRegister";
 		 }
 		 
 		 // 勤怠一覧の更新
 		 leavingRegisterService.create(leavingRegisterRequest);
-		 return "redirect:/featuer/leavingRegister";
+		  return String.format("redirect:/featuer/leavingRegister/%d", leavingRegisterRequest.getAttendance_id());
 		 
 	 }
 	 

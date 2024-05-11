@@ -122,3 +122,8 @@ button {
     font-size: medium;
 
 }
+
+label.text-danger{
+    color: red;
+    margin-left: 50px;
+}
