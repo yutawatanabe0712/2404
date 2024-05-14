@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta chaset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>退勤登録</title>
+	<link rel="stylesheet" th:href="@{/css/leavingRegister.css}">
+</head>
+
+<body>
+
+	<div class="wapper">
+		<div class="clearfix">
+			<div class="container">
+				<h1>退勤登録</h1><img th:src="@{/images/record.jpg}">
+			</div>
+		</div>
+
+		<div class="header">
+			<div class="top-line"></div>
+			<div class="bottom-line"></div>
+		</div>
+
+		<div th:if="${ValidationError}" th:each="error : ${ValidationError}" th:object="${ValidationError}">
+			<label class="text-danger" th:text="${error}"></label>
+		</div>
+
+
+		<form th:action="@{/featuer/leavingRegister/create}" th:object="${leavingRegisterUpdateRequest}" method="post">
+			<div th:if="${ValidationError}" th:each="error : ${ValidationError}"></div>
+
+			<div class="Form">
+				<div class="Form-Item">
+					<label class="Form-Item-Label">◇勤怠ID</label>
+					<div class="attendance_id">
+						<input type="text" th:field="*{attendance_id}" class="Form-Item-Input">
+					</div>
+				</div>
+
+				<div class="Form-Item">
+					<label class="Form-Item-Label">◇ユーザーID</label>
+					<div class="user_id">
+						<input type="text" th:field="*{user_id}" class="Form-Item-Input">
+					</div>
+				</div>
+
+				<div class="Form-Item">
+					<label class="Form-Item-Label">◇ステータス <span class="Form-Item-Label-Required">*</span></label>
+					<div class="status">
+						<select name="status" th:field="*{status}">
+							<option value="退勤">退勤</option>
+							<option value="早退">早退</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="Form-Item">
+					<label class="Form-Item-Label">◇退勤日 <span class="Form-Item-Label-Required">*</span></label>
+					<div class="leaving_date">
+						<input type="date" th:field="*{leaving_date}" class="Form-Item-Input">
+					</div>
+				</div>
+
+				<div class="Form-Item">
+					<label class="Form-Item-Label">◇退勤時間 <span class="Form-Item-Label-Required">*</span></label>
+					<div class="leaving_time">
+						<input type="time" value="19:00" th:field="*{leaving_time}" class="Form-Item-Input">
+					</div>
+				</div>
+
+				<div class="Form-Item">
+					<label class="Form-Item-Label">◇休憩時間 <span class="Form-Item-Label-Required">*</span></label>
+					<div class="break_time">
+						<input type="time" value="01:00" th:field="*{break_time}" class="Form-Item-Input">
+					</div>
+				</div>
+
+				<div class="Form-Item">
+					<label class="Form-Item-Label">◇備考</label><span class="Form-Item-Label-Required"></span>
+					<div class="remarks">
+						<textarea class="textarea" th:field="*{remarks}"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer">
+				<a th:href="@{feature/attendanceLIst/list}" class="btn"> <button>戻る</button></a>
+				<button th:href="@{/featuer/leavingRegister}" class="btn" type="submit">登録</button>
+			</div>
+
+		</form>
+	</div>
+</body>
+
+</html>
