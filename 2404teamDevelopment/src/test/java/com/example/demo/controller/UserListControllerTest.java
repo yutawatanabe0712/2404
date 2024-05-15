@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -48,6 +50,10 @@ public class UserListControllerTest {
 	            .andExpect(status().isOk())
 	            .andExpect(model().attribute("userlist",userlist))
 	            .andExpect(view().name("userList"));
+	    
+	    int count = userListService.searchAll().size();
+	    assertEquals(1, count);
+	    Mockito.verify(userListService, times(2)).searchAll();
 	}
 
 	/**
@@ -71,6 +77,10 @@ public class UserListControllerTest {
 	            .andExpect(status().isOk())
 	            .andExpect(model().attribute("userlist",userlist))
 	            .andExpect(view().name("userList"));
+	    
+	    int count = userListService.searchAll().size();
+	    assertEquals(1, count);
+	    Mockito.verify(userListService, times(2)).searchAll();
 	}
 	
 	/**
@@ -101,8 +111,13 @@ public class UserListControllerTest {
 	            .andExpect(status().isOk())
 	            .andExpect(model().attribute("userlist",userlist))
 	            .andExpect(view().name("userList"));
+	    
+	    int count = userListService.searchAll().size();
+	    assertEquals(2, count);
+	    Mockito.verify(userListService, times(2)).searchAll();
 
    }
+	
 	
 	
 
