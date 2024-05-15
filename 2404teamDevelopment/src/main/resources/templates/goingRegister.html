@@ -21,7 +21,8 @@
 			<div class="bottom-line"></div>
 		</div>
 
-		<form th:action="@{/goingRegister/create/{userId}(userId=${userId})}" th:object="${goingRegisterrequest}" th:method="post">
+		<form th:action="@{/goingRegister/create/{userId}(userId=${userId})}" th:object="${goingRegisterrequest}"
+			th:method="post">
 			<div th:if="${ValidationError}" th:each="error : ${ValidationError}">
 				<label th:text="${error}"></label>
 			</div>
@@ -37,7 +38,7 @@
 				<div class="Form-Item">
 					<label class="Form-Item-Label">◇ユーザーID</label>
 					<div class="user_id">
-						<input type="text" th:Value="${userId}" name="userId" class="Form-Item-Input" readonly >
+						<input type="text" th:Value="${userId}" name="userId" class="Form-Item-Input" readonly>
 					</div>
 				</div>
 
@@ -79,7 +80,7 @@
 			</div>
 
 			<div class="footer">
-				 <button><a href="/featuer/userList" class="back_button">戻る</a></button>
+				<a th:href="@{/featuer/userList}" class="back_button"><button type="button">戻る</button></a>
 				<button type="submit">登録</button>
 			</div>
 

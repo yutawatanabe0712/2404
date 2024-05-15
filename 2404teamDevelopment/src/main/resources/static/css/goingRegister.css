@@ -126,4 +126,6 @@ button {
 .back_button {
 	text-decoration: none;
 	color: #fff;
+	width: 100px;
+	height: 40px;
 }
