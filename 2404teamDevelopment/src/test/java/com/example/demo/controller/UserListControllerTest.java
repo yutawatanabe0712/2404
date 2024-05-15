@@ -28,7 +28,7 @@ public class UserListControllerTest {
 	
 	
 	/**
-	 * 【正常系】GETリクエストが正常に処理され、科目一覧画面が表示されListがレスポンスとして正しく帰ってきていることを検証する
+	 * 【正常系】GETリクエストが正常に処理され、ユーザー一覧画面が表示されListがレスポンスとして正しく帰ってきていることを検証する
 	 * @throws Exception
 	 */
 	@Test
@@ -81,13 +81,20 @@ public class UserListControllerTest {
 	public void Test03() throws Exception {
 		List<UserListEntity> userlist = new ArrayList<UserListEntity>();
 		UserListEntity userListEntity = new UserListEntity();
+		UserListEntity userListEntity1 = new UserListEntity();
 		
-	    userListEntity.setUser_id(1,2);
-	    userListEntity.setName("山田太郎","鈴木一郎");
-	    userListEntity.setFurigana("ヤマダタロウ","スズキイチロウ");
-	    userListEntity.setMail("aaaa@gmail.com","bbbb@gmail.com");
-	    userListEntity.setPassword("123456789","abcdefg");
+	    userListEntity.setUser_id(1);
+	    userListEntity.setName("山田太郎");
+	    userListEntity.setFurigana("ヤマダタロウ");
+	    userListEntity.setMail("aaaa@gmail.com");
+	    userListEntity.setPassword("123456789");
 	    userlist.add(userListEntity);
+	    userListEntity1.setUser_id(2);
+	    userListEntity1.setName("鈴木一郎");
+	    userListEntity1.setFurigana("スズキイチロウ");
+	    userListEntity1.setMail("bbbb@gmail.com");
+	    userListEntity1.setPassword("abcdefg");
+	    userlist.add(userListEntity1);
 	    when(userListService.searchAll()).thenReturn(userlist);
 	    
 	    mockMvc.perform(get("/featuer/userList"))
@@ -96,6 +103,26 @@ public class UserListControllerTest {
 	            .andExpect(view().name("userList"));
 
    }
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
