@@ -50,7 +50,7 @@
                     <td class="break_time" th:text="*{break_time}"></td>
                     <td class="correction" th:text="*{edit_reason}"></td>
                     <td class="remarks" th:text="*{remarks}"></td>
-                    <td class="leaving_button"><button>退勤登録</button></td>
+                    <td class="leaving_button"><a th:href="@{/featuer/leavingRegister/{attendance_id}(attendance_id=*{attendance_id})}"><button type="button">退勤登録</button></a></td>
                 </tr>
             </tbody>
         </table>
