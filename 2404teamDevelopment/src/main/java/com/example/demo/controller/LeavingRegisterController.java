@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.LeavingRegisterRequest;
-import com.example.demo.dto.LeavingRegisterUpdateRequest;
 import com.example.demo.entity.LeavingRegisterEntity;
 import com.example.demo.service.LeavingRegisterService;
 
@@ -38,18 +37,19 @@ public class LeavingRegisterController {
 	@GetMapping("/featuer/leavingRegister/{id}")
 	public String leavingRegister(@PathVariable Integer id,Model model) {
 		LeavingRegisterEntity leavingRegister = leavingRegisterService.findById(id);
-		LeavingRegisterUpdateRequest leavingRegisterUpdateRequest= new LeavingRegisterUpdateRequest();
-		leavingRegisterUpdateRequest.setAttendance_id(leavingRegister.getAttendance_id());
-		leavingRegisterUpdateRequest.setUser_id(leavingRegister.getUser_id());
-		leavingRegisterUpdateRequest.setStatus(leavingRegister.getStatus());
-		leavingRegisterUpdateRequest.setLeaving_date(leavingRegister.getLeaving_date());
-		leavingRegisterUpdateRequest.setLeaving_time(leavingRegister.getLeaving_time());
-		leavingRegisterUpdateRequest.setBreak_time(leavingRegister.getBreak_time());
-		leavingRegisterUpdateRequest.setRemarks(leavingRegister.getRemarks());
-		 model.addAttribute("leavingRegisterUpdateRequest",leavingRegisterUpdateRequest);	
+		LeavingRegisterRequest leavingRegisterRequest= new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(leavingRegister.getAttendance_id());
+		leavingRegisterRequest.setUser_id(leavingRegister.getUser_id());
+		leavingRegisterRequest.setStatus(leavingRegister.getStatus());
+		leavingRegisterRequest.setLeaving_date(leavingRegister.getLeaving_date());
+		leavingRegisterRequest.setLeaving_time(leavingRegister.getLeaving_time());
+		leavingRegisterRequest.setBreak_time(leavingRegister.getBreak_time());
+		leavingRegisterRequest.setRemarks(leavingRegister.getRemarks());
+		 model.addAttribute("leavingRegisterUpdateRequest",leavingRegisterRequest);	
 		return "leavingRegister";
 		
 		
+
 	}
 	
 	
