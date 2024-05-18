@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.example.demo.dto.LeavingRegisterRequest;
 import com.example.demo.entity.LeavingRegisterEntity;
 import com.example.demo.service.LeavingRegisterService;
 
@@ -38,11 +39,19 @@ public class LeavingRegisterControllerTest {
 		leavingRegisterEntity.setLeaving_time(null);
 		leavingRegisterEntity.setBreak_time(null);
 		leavingRegisterEntity.setRemarks(null);
+		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(1);
+		leavingRegisterRequest.setUser_id(1);
+		leavingRegisterRequest.setStatus(null);
+		leavingRegisterRequest.setLeaving_date(null);
+		leavingRegisterRequest.setLeaving_time(null);
+		leavingRegisterRequest.setBreak_time(null);
+		leavingRegisterRequest.setRemarks(null);
 		doReturn(leavingRegisterEntity).when(leavingRegisterService).findById(any());
 
 		mockMvc.perform(get("/featuer/leavingRegister/1"))
 				.andExpect(status().isOk())
-				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterEntity))
+				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterRequest))
 				.andExpect(view().name("leavingRegister"));
 		Mockito.verify(leavingRegisterService, times(1)).findById(1);
 	}
