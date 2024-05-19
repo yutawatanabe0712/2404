@@ -31,23 +31,23 @@ public class LeavingRegisterControllerTest {
 	 */
 	@Test
 	public void testDisplaySucess1() throws Exception {
-		LeavingRegisterEntity leavingRegisterEntity = new LeavingRegisterEntity();
-		leavingRegisterEntity.setAttendance_id(1);
-		leavingRegisterEntity.setUser_id(1);
-		leavingRegisterEntity.setStatus(null);
-		leavingRegisterEntity.setLeaving_date(null);
-		leavingRegisterEntity.setLeaving_time(null);
-		leavingRegisterEntity.setBreak_time(null);
-		leavingRegisterEntity.setRemarks(null);
+		LeavingRegisterEntity leavingRegister = new LeavingRegisterEntity();
 		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
-		leavingRegisterRequest.setAttendance_id(1);
-		leavingRegisterRequest.setUser_id(1);
-		leavingRegisterRequest.setStatus(null);
-		leavingRegisterRequest.setLeaving_date(null);
-		leavingRegisterRequest.setLeaving_time(null);
-		leavingRegisterRequest.setBreak_time(null);
-		leavingRegisterRequest.setRemarks(null);
-		doReturn(leavingRegisterEntity).when(leavingRegisterService).findById(any());
+		leavingRegister.setAttendance_id(1);
+		leavingRegister.setUser_id(1);
+		leavingRegister.setStatus(null);
+		leavingRegister.setLeaving_date(null);
+		leavingRegister.setLeaving_time(null);
+		leavingRegister.setBreak_time(null);
+		leavingRegister.setRemarks(null);
+		leavingRegisterRequest.setAttendance_id(leavingRegister.getAttendance_id());
+		leavingRegisterRequest.setUser_id(leavingRegister.getUser_id());
+		leavingRegisterRequest.setStatus(leavingRegister.getStatus());
+		leavingRegisterRequest.setLeaving_date(leavingRegister.getLeaving_date());
+		leavingRegisterRequest.setLeaving_time(leavingRegister.getLeaving_time());
+		leavingRegisterRequest.setBreak_time(leavingRegister.getBreak_time());
+		leavingRegisterRequest.setRemarks(leavingRegister.getRemarks());
+		doReturn(leavingRegister).when(leavingRegisterService).findById(any());
 
 		mockMvc.perform(get("/featuer/leavingRegister/1"))
 				.andExpect(status().isOk())
@@ -62,7 +62,17 @@ public class LeavingRegisterControllerTest {
 	 */
 	@Test
 	public void testCreateUserSucess2() throws Exception {
+		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(1);
+		leavingRegisterRequest.setUser_id(1);
+		leavingRegisterRequest.setStatus("退勤");
+		leavingRegisterRequest.setLeaving_date(null);
+		leavingRegisterRequest.setLeaving_time(null);
+		leavingRegisterRequest.setBreak_time(null);
+		leavingRegisterRequest.setRemarks(null);
+		
 
+	
 	}
 
 }
