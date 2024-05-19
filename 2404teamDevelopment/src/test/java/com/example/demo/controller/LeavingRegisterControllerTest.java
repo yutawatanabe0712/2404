@@ -5,6 +5,9 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,18 +64,37 @@ public class LeavingRegisterControllerTest {
 	 *  @throws Exception
 	 */
 	@Test
-	public void testCreateUserSucess2() throws Exception {
+	public void testCreateLeavingRegisterSucess2() throws Exception {
 		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
 		leavingRegisterRequest.setAttendance_id(1);
 		leavingRegisterRequest.setUser_id(1);
 		leavingRegisterRequest.setStatus("退勤");
-		leavingRegisterRequest.setLeaving_date("2024-05-01");
-		leavingRegisterRequest.setLeaving_time("19:00");
-		leavingRegisterRequest.setBreak_time("01:00");
+		leavingRegisterRequest.setLeaving_date(LocalDate.of(2024, 05, 01));
+		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
+		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
 		leavingRegisterRequest.setRemarks(null);
-		
+		mockMvc.perform(post("/featuer/leavingRegister/create")
+				.param("attendance_id", "1")
+				.param("user_id", "1")
+				.param("status", "退勤")
+				.param("leaving_date", "2024-05-01")
+				.param("leaving_time", "19:00")
+				.param("break_time", "01:00")
+				.param("Remarks", ""))
 
+				.andExpect(status().isFound())
+				.andExpect(model().hasNoErrors())
+				.andExpect(view().name("redirect:/featuer/leavingRegister/1"));
+
+	}
 	
+	/**
+	 * 【異常系】POSTリクエストに対し必須項目であるユーザーIDがない状態で処理され、入力画面に"*ユーザーIDを入力してください"とバリデーションメッセージを持った上で表示される事を検証する
+	 *  @throws Exception
+	 */
+	public void testCreateLeavingRegisterError01() throws Exception{
+		
+		
 	}
 
 }
