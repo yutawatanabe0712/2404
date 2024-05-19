@@ -66,9 +66,9 @@ public class LeavingRegisterControllerTest {
 		leavingRegisterRequest.setAttendance_id(1);
 		leavingRegisterRequest.setUser_id(1);
 		leavingRegisterRequest.setStatus("退勤");
-		leavingRegisterRequest.setLeaving_date(null);
-		leavingRegisterRequest.setLeaving_time(null);
-		leavingRegisterRequest.setBreak_time(null);
+		leavingRegisterRequest.setLeaving_date("2024-05-01");
+		leavingRegisterRequest.setLeaving_time("19:00");
+		leavingRegisterRequest.setBreak_time("01:00");
 		leavingRegisterRequest.setRemarks(null);
 		
 
