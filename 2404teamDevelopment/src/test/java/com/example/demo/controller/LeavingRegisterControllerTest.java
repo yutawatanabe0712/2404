@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -14,6 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.dto.LeavingRegisterRequest;
 import com.example.demo.entity.LeavingRegisterEntity;
@@ -87,14 +92,39 @@ public class LeavingRegisterControllerTest {
 				.andExpect(view().name("redirect:/featuer/leavingRegister/1"));
 
 	}
-	
+
 	/**
 	 * 【異常系】POSTリクエストに対し必須項目であるユーザーIDがない状態で処理され、入力画面に"*ユーザーIDを入力してください"とバリデーションメッセージを持った上で表示される事を検証する
 	 *  @throws Exception
 	 */
-	public void testCreateLeavingRegisterError01() throws Exception{
-		
-		
+	public void testCreateLeavingRegisterError01() throws Exception {
+		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(1);
+		leavingRegisterRequest.setUser_id(1);
+		leavingRegisterRequest.setStatus(null);
+		leavingRegisterRequest.setLeaving_date(LocalDate.of(2024, 05, 01));
+		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
+		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
+		leavingRegisterRequest.setRemarks(null);
+
+		//リクエストを送る事によるレスポンスをResultActions(変数名：actions)に格納し保持する
+		ResultActions actions = mockMvc.perform(post("/featuer/leavingRegister/create"))
+				.andExpect(model().hasErrors())
+				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterRequest))
+				.andExpect(view().name("leavingRegister"));
+
+		//レスポンスのactionsを利用して画面側で持つ予定のデータ（バリデーションメッセージなど）をmnvに格納する
+		ModelAndView mnv = actions.andReturn().getModelAndView();
+		//mnvから特定のRequestで発生したバリデーションメッセージを取得する
+		BindingResult bindingResult = (BindingResult) mnv.getModel()
+				.get(BindingResult.MODEL_KEY_PREFIX + "leavingRegisterUpdateRequest");
+
+		//バリデーションエラー件数をcountに代入する
+		int count = bindingResult.getErrorCount();
+		//バリデーションエラー件数が正しいか確認
+		assertEquals(1, count);
+		//エラーメッセージ名が合っているか確認
+		assertThat("*ステータスを入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
 	}
 
 }
