@@ -97,11 +97,12 @@ public class LeavingRegisterControllerTest {
 	 * 【異常系】POSTリクエストに対し必須項目であるユーザーIDがない状態で処理され、入力画面に"*ユーザーIDを入力してください"とバリデーションメッセージを持った上で表示される事を検証する
 	 *  @throws Exception
 	 */
+	@Test
 	public void testCreateLeavingRegisterError01() throws Exception {
 		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
 		leavingRegisterRequest.setAttendance_id(1);
-		leavingRegisterRequest.setUser_id(1);
-		leavingRegisterRequest.setStatus(null);
+		leavingRegisterRequest.setUser_id(null);
+		leavingRegisterRequest.setStatus("退勤");
 		leavingRegisterRequest.setLeaving_date(LocalDate.of(2024, 05, 01));
 		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
 		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
@@ -124,7 +125,7 @@ public class LeavingRegisterControllerTest {
 		//バリデーションエラー件数が正しいか確認
 		assertEquals(1, count);
 		//エラーメッセージ名が合っているか確認
-		assertThat("*ステータスを入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
+		assertThat("*ユーザーIDを入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
 	}
 
 }
