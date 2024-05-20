@@ -78,14 +78,14 @@ public class LeavingRegisterControllerTest {
 		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
 		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
 		leavingRegisterRequest.setRemarks(null);
-		mockMvc.perform(post("/featuer/leavingRegister/create")
-				.param("attendance_id", "1")
-				.param("user_id", "1")
-				.param("status", "退勤")
-				.param("leaving_date", "2024-05-01")
-				.param("leaving_time", "19:00")
-				.param("break_time", "01:00")
-				.param("Remarks", ""))
+		mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
+//				.param("attendance_id", "1")
+//				.param("user_id", "1")
+//				.param("status", "退勤")
+//				.param("leaving_date", "2024-05-01")
+//				.param("leaving_time", "19:00")
+//				.param("break_time", "01:00")
+//				.param("Remarks", ""))
 
 				.andExpect(status().isFound())
 				.andExpect(model().hasNoErrors())
@@ -109,7 +109,7 @@ public class LeavingRegisterControllerTest {
 		leavingRegisterRequest.setRemarks(null);
 
 		//リクエストを送る事によるレスポンスをResultActions(変数名：actions)に格納し保持する
-		ResultActions actions = mockMvc.perform(post("/featuer/leavingRegister/create"))
+		ResultActions actions = mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
 				.andExpect(model().hasErrors())
 				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterRequest))
 				.andExpect(view().name("leavingRegister"));
@@ -118,7 +118,7 @@ public class LeavingRegisterControllerTest {
 		ModelAndView mnv = actions.andReturn().getModelAndView();
 		//mnvから特定のRequestで発生したバリデーションメッセージを取得する
 		BindingResult bindingResult = (BindingResult) mnv.getModel()
-				.get(BindingResult.MODEL_KEY_PREFIX + "leavingRegisterUpdateRequest");
+				.get(BindingResult.MODEL_KEY_PREFIX + "leavingRegisterRequest");
 
 		//バリデーションエラー件数をcountに代入する
 		int count = bindingResult.getErrorCount();
