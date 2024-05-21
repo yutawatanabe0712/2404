@@ -78,7 +78,7 @@ public class LeavingRegisterControllerTest {
 		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
 		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
 		leavingRegisterRequest.setRemarks(null);
-		mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
+		mockMvc.perform(post("/featuer/leavingRegister/create").flashAttr("leavingRegisterRequest",leavingRegisterRequest))
 //				.param("attendance_id", "1")
 //				.param("user_id", "1")
 //				.param("status", "退勤")
@@ -94,7 +94,7 @@ public class LeavingRegisterControllerTest {
 	}
 
 	/**
-	 * 【異常系】POSTリクエストに対し必須項目であるユーザーIDがない状態で処理され、入力画面に"*ユーザーIDを入力してください"とバリデーションメッセージを持った上で表示される事を検証する
+	 * 【異常系】POSTリクエストに対し必須項目であるユーザーIDがnullの状態で処理され、入力画面に"*ユーザーIDを入力してください"とバリデーションメッセージを持った上で表示される事を検証する
 	 *  @throws Exception
 	 */
 	@Test
@@ -126,6 +126,181 @@ public class LeavingRegisterControllerTest {
 		assertEquals(1, count);
 		//エラーメッセージ名が合っているか確認
 		assertThat("*ユーザーIDを入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
+	}
+	
+	/**
+	 * 【異常系】POSTリクエストに対し必須項目であるステータスがnullの状態で処理され、入力画面に"*ステータスを入力してください"とバリデーションメッセージを持った上で表示される事を検証する
+	 *  @throws Exception
+	 */
+	@Test
+	public void testCreateLeavingRegisterError02() throws Exception {
+		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(1);
+		leavingRegisterRequest.setUser_id(1);
+		leavingRegisterRequest.setStatus(null);
+		leavingRegisterRequest.setLeaving_date(LocalDate.of(2024, 05, 01));
+		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
+		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
+		leavingRegisterRequest.setRemarks(null);
+
+		//リクエストを送る事によるレスポンスをResultActions(変数名：actions)に格納し保持する
+		ResultActions actions = mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
+				.andExpect(model().hasErrors())
+				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterRequest))
+				.andExpect(view().name("leavingRegister"));
+
+		//レスポンスのactionsを利用して画面側で持つ予定のデータ（バリデーションメッセージなど）をmnvに格納する
+		ModelAndView mnv = actions.andReturn().getModelAndView();
+		//mnvから特定のRequestで発生したバリデーションメッセージを取得する
+		BindingResult bindingResult = (BindingResult) mnv.getModel()
+				.get(BindingResult.MODEL_KEY_PREFIX + "leavingRegisterRequest");
+
+		//バリデーションエラー件数をcountに代入する
+		int count = bindingResult.getErrorCount();
+		//バリデーションエラー件数が正しいか確認
+		assertEquals(1, count);
+		//エラーメッセージ名が合っているか確認
+		assertThat("*ステータスを入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
+	}
+	
+	/**
+	 * 【異常系】POSTリクエストに対し必須項目である退勤日がnullの状態で処理され、入力画面に"*退勤日を入力してください"とバリデーションメッセージを持った上で表示される事を検証する
+	 *  @throws Exception
+	 */
+	@Test
+	public void testCreateLeavingRegisterError03() throws Exception {
+		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(1);
+		leavingRegisterRequest.setUser_id(1);
+		leavingRegisterRequest.setStatus("退勤");
+		leavingRegisterRequest.setLeaving_date(null);
+		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
+		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
+		leavingRegisterRequest.setRemarks(null);
+
+		//リクエストを送る事によるレスポンスをResultActions(変数名：actions)に格納し保持する
+		ResultActions actions = mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
+				.andExpect(model().hasErrors())
+				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterRequest))
+				.andExpect(view().name("leavingRegister"));
+
+		//レスポンスのactionsを利用して画面側で持つ予定のデータ（バリデーションメッセージなど）をmnvに格納する
+		ModelAndView mnv = actions.andReturn().getModelAndView();
+		//mnvから特定のRequestで発生したバリデーションメッセージを取得する
+		BindingResult bindingResult = (BindingResult) mnv.getModel()
+				.get(BindingResult.MODEL_KEY_PREFIX + "leavingRegisterRequest");
+
+		//バリデーションエラー件数をcountに代入する
+		int count = bindingResult.getErrorCount();
+		//バリデーションエラー件数が正しいか確認
+		assertEquals(1, count);
+		//エラーメッセージ名が合っているか確認
+		assertThat("*退勤日を入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
+	}
+	
+	/**
+	 * 【異常系】POSTリクエストに対し必須項目である退勤時間がnullの状態で処理され、入力画面に"*退勤時間を入力してください"とバリデーションメッセージを持った上で表示される事を検証する
+	 *  @throws Exception
+	 */
+	@Test
+	public void testCreateLeavingRegisterError04() throws Exception {
+		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(1);
+		leavingRegisterRequest.setUser_id(1);
+		leavingRegisterRequest.setStatus("退勤");
+		leavingRegisterRequest.setLeaving_date(LocalDate.of(2024, 05, 01));
+		leavingRegisterRequest.setLeaving_time(null);
+		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
+		leavingRegisterRequest.setRemarks(null);
+
+		//リクエストを送る事によるレスポンスをResultActions(変数名：actions)に格納し保持する
+		ResultActions actions = mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
+				.andExpect(model().hasErrors())
+				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterRequest))
+				.andExpect(view().name("leavingRegister"));
+
+		//レスポンスのactionsを利用して画面側で持つ予定のデータ（バリデーションメッセージなど）をmnvに格納する
+		ModelAndView mnv = actions.andReturn().getModelAndView();
+		//mnvから特定のRequestで発生したバリデーションメッセージを取得する
+		BindingResult bindingResult = (BindingResult) mnv.getModel()
+				.get(BindingResult.MODEL_KEY_PREFIX + "leavingRegisterRequest");
+
+		//バリデーションエラー件数をcountに代入する
+		int count = bindingResult.getErrorCount();
+		//バリデーションエラー件数が正しいか確認
+		assertEquals(1, count);
+		//エラーメッセージ名が合っているか確認
+		assertThat("*退勤時間を入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
+	}
+	
+	/**
+	 * 【異常系】POSTリクエストに対し必須項目である休憩時間がnullの状態で処理され、入力画面に"*休憩時間を入力してください"とバリデーションメッセージを持った上で表示される事を検証する
+	 *  @throws Exception
+	 */
+	@Test
+	public void testCreateLeavingRegisterError05() throws Exception {
+		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(1);
+		leavingRegisterRequest.setUser_id(1);
+		leavingRegisterRequest.setStatus("退勤");
+		leavingRegisterRequest.setLeaving_date(LocalDate.of(2024, 05, 01));
+		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
+		leavingRegisterRequest.setBreak_time(null);
+		leavingRegisterRequest.setRemarks(null);
+
+		//リクエストを送る事によるレスポンスをResultActions(変数名：actions)に格納し保持する
+		ResultActions actions = mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
+				.andExpect(model().hasErrors())
+				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterRequest))
+				.andExpect(view().name("leavingRegister"));
+
+		//レスポンスのactionsを利用して画面側で持つ予定のデータ（バリデーションメッセージなど）をmnvに格納する
+		ModelAndView mnv = actions.andReturn().getModelAndView();
+		//mnvから特定のRequestで発生したバリデーションメッセージを取得する
+		BindingResult bindingResult = (BindingResult) mnv.getModel()
+				.get(BindingResult.MODEL_KEY_PREFIX + "leavingRegisterRequest");
+
+		//バリデーションエラー件数をcountに代入する
+		int count = bindingResult.getErrorCount();
+		//バリデーションエラー件数が正しいか確認
+		assertEquals(1, count);
+		//エラーメッセージ名が合っているか確認
+		assertThat("*休憩時間を入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
+	}
+	
+	/**
+	 * 【異常系】POSTリクエストに対し、備考が入力されているが文字数制限100文字を超えた状態で処理され、入力画面に"*備考は100文字以下で入力してください"とバリデーションメッセージを持った上で表示される事を検証する
+	 *  @throws Exception
+	 */
+	@Test
+	public void testCreateLeavingRegisterError06() throws Exception {
+		LeavingRegisterRequest leavingRegisterRequest = new LeavingRegisterRequest();
+		leavingRegisterRequest.setAttendance_id(1);
+		leavingRegisterRequest.setUser_id(1);
+		leavingRegisterRequest.setStatus("退勤");
+		leavingRegisterRequest.setLeaving_date(LocalDate.of(2024, 05, 01));
+		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
+		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
+		leavingRegisterRequest.setRemarks("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901");
+
+		//リクエストを送る事によるレスポンスをResultActions(変数名：actions)に格納し保持する
+		ResultActions actions = mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
+				.andExpect(model().hasErrors())
+				.andExpect(model().attribute("leavingRegisterUpdateRequest", leavingRegisterRequest))
+				.andExpect(view().name("leavingRegister"));
+
+		//レスポンスのactionsを利用して画面側で持つ予定のデータ（バリデーションメッセージなど）をmnvに格納する
+		ModelAndView mnv = actions.andReturn().getModelAndView();
+		//mnvから特定のRequestで発生したバリデーションメッセージを取得する
+		BindingResult bindingResult = (BindingResult) mnv.getModel()
+				.get(BindingResult.MODEL_KEY_PREFIX + "leavingRegisterRequest");
+
+		//バリデーションエラー件数をcountに代入する
+		int count = bindingResult.getErrorCount();
+		//バリデーションエラー件数が正しいか確認
+		assertEquals(1, count);
+		//エラーメッセージ名が合っているか確認
+		assertThat("*備考は100文字以下で入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
 	}
 
 }
