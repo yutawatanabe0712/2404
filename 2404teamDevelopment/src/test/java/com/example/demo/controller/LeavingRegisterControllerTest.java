@@ -79,13 +79,6 @@ public class LeavingRegisterControllerTest {
 		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
 		leavingRegisterRequest.setRemarks(null);
 		mockMvc.perform(post("/featuer/leavingRegister/create").flashAttr("leavingRegisterRequest",leavingRegisterRequest))
-//				.param("attendance_id", "1")
-//				.param("user_id", "1")
-//				.param("status", "退勤")
-//				.param("leaving_date", "2024-05-01")
-//				.param("leaving_time", "19:00")
-//				.param("break_time", "01:00")
-//				.param("Remarks", ""))
 
 				.andExpect(status().isFound())
 				.andExpect(model().hasNoErrors())
