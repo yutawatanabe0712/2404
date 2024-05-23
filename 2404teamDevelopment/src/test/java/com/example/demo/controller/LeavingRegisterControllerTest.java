@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -32,6 +33,8 @@ public class LeavingRegisterControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
+	
+	
 
 	/**
 	 * 【正常系】GETリクエストが正常に処理され、勤怠ID,ユーザーIDを表示して、退勤登録画面が表示されレスポンスとして正しく返ってきていることを検証する
@@ -274,7 +277,7 @@ public class LeavingRegisterControllerTest {
 		leavingRegisterRequest.setLeaving_date(LocalDate.of(2024, 05, 01));
 		leavingRegisterRequest.setLeaving_time(LocalTime.of(19, 00));
 		leavingRegisterRequest.setBreak_time(LocalTime.of(01, 00));
-		leavingRegisterRequest.setRemarks("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901");
+		leavingRegisterRequest.setRemarks(random(101));
 
 		//リクエストを送る事によるレスポンスをResultActions(変数名：actions)に格納し保持する
 		ResultActions actions = mockMvc.perform((post("/featuer/leavingRegister/create")).flashAttr("leavingRegisterRequest",leavingRegisterRequest))
@@ -295,5 +298,21 @@ public class LeavingRegisterControllerTest {
 		//エラーメッセージ名が合っているか確認
 		assertThat("*備考は100文字以下で入力してください").isEqualTo(bindingResult.getFieldError().getDefaultMessage());
 	}
+	
+	/**
+	 * 指定した文字数分ランダムで文字列を作成するメソッド
+	 * @param length 文字数を指定する
+	 * @return 指定した文字数分のランダムな文字列
+	 */
+	private String random(int length) {
+		Random random = new Random();
+		StringBuilder stringBuilder = new StringBuilder(length);
+
+		for (int i = 0; i < length; i++) {
+			stringBuilder.append(random.nextInt(10));
+		}
+		return stringBuilder.toString();
+	}
+	
 
 }
