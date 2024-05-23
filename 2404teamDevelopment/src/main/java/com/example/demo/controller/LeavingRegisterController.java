@@ -21,14 +21,14 @@ import com.example.demo.service.LeavingRegisterService;
 
 @Controller
 public class LeavingRegisterController {
-	
+
 	/**
 	* 勤怠情報 Service
 	*/
 	@Autowired
 	LeavingRegisterService leavingRegisterService;
-	
-	
+
+
 	 /**
 	 * 退勤登録画面を表示
 	 * @param id 表示する勤怠ID
@@ -46,14 +46,12 @@ public class LeavingRegisterController {
 		leavingRegisterUpdateRequest.setLeaving_time(leavingRegister.getLeaving_time());
 		leavingRegisterUpdateRequest.setBreak_time(leavingRegister.getBreak_time());
 		leavingRegisterUpdateRequest.setRemarks(leavingRegister.getRemarks());
-		 model.addAttribute("leavingRegisterUpdateRequest",leavingRegisterUpdateRequest);	
+		 model.addAttribute("leavingRegisterUpdateRequest",leavingRegisterUpdateRequest);
 		return "leavingRegister";
-		
-		
 	}
-	
-	
-	
+
+
+
 	 /**
 	  * 退勤登録
 	  * @param  leavingRegisterRequest リクエストデータ
@@ -73,13 +71,12 @@ public class LeavingRegisterController {
 			 model.addAttribute("leavingRegisterUpdateRequest", leavingRegisterRequest);
 			 return "leavingRegister";
 		 }
-		 
+
 		 // 勤怠一覧の更新
 		 leavingRegisterService.create(leavingRegisterRequest);
-		  return String.format("redirect:/featuer/leavingRegister/%d", leavingRegisterRequest.getAttendance_id());
-		 
+		  return "redirect:/featuer/userList";
 	 }
-	 
+
 }
 
 
